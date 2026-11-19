@@ -1,23 +1,6 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cover Snap</title>
-<link rel="stylesheet" href="./style.css">
-</head>
-<body>
-<main class="app">
-  <section class="controls">
-    <h1>Cover Snap</h1>
-    <p>A photo and a caption, made into a square cover.</p>
-    <label>Photo <input id="photo" type="file" accept="image/*"></label>
-    <label>Caption <input id="caption" type="text" maxlength="40" value="Sunset Heist"></label>
-    <button id="export" type="button">Export PNG 1080 x 1080</button>
-    <p id="status" role="status"></p>
-  </section>
-  <canvas id="cover" width="1080" height="1080" aria-label="The cover"></canvas>
-</main>
-<script type="module" src="./src/main.js"></script>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Neon Coast Cover Studio</title><link rel="stylesheet" href="./style.css"></head>
+<body><header><a class="brand" href="./"><span class="mark">N<span>↗</span></span><span>NEON COAST<small>COVER STUDIO</small></span></a><div class="tagline">YOUR PHOTOS. CINEMATIC ENERGY.</div><span class="offline">● OFFLINE & PRIVATE</span></header>
+<main><aside><div class="section-title"><span>01 / COMPOSITION</span><span>↗</span></div><div id="layouts" class="choices layouts"></div><div class="section-title"><span>02 / YOUR PHOTOS</span><span id="panel-label">PANEL 01</span></div><div id="panels" class="thumbnails"></div><div class="photo-actions"><label class="upload">＋ Replace photo<input id="photo" type="file" accept="image/*"></label><button id="fill">Use in all</button></div><div class="zoomline"><label for="zoom">Zoom</label><output id="zoom-value">100%</output></div><input id="zoom" type="range" min="1" max="3" step=".01" value="1"><button id="reset" class="text-button">Reset crop</button><p class="micro">Drag a photo in the preview to reposition it.</p><div class="section-title"><span>03 / COLOR STORY</span></div><div id="grades" class="choices grades"></div><div class="section-title"><span>04 / THE HEADLINE</span></div><label class="field">Main title<input id="title" maxlength="32" value="MIDNIGHT COAST"></label><label class="field">Neon subtitle<input id="subtitle" maxlength="52" value="Some nights never end"></label></aside>
+<section class="stage"><div class="stage-top"><span><i></i> LIVE PREVIEW</span><span id="dimensions">1080 × 1080 PX</span></div><div class="canvas-wrap"><canvas id="cover" aria-label="Poster preview. Select a panel and drag to pan its photo."></canvas></div><div class="stage-bottom"><span>✦ MADE FOR YOUR MAIN CHARACTER MOMENT</span><span>ORIGINAL ART / VOL. 01</span></div></section>
+<aside class="export-side"><div class="eyebrow">FROM CAMERA ROLL<br>TO COVER STORY.</div><h1>Make the<br>night yours<span>.</span></h1><p class="intro">A little neon. A little nostalgia.<br>A cover only you could make.</p><div class="section-title"><span>05 / EXPORT SIZE</span></div><div id="sizes" class="size-choices"></div><button id="export" class="export">Export PNG <span>↗</span></button><p id="status" role="status">Full resolution. No watermark.</p><div class="how"><span>THE THREE-STEP GETAWAY</span><p>01 &nbsp; Pick your photos<br>02 &nbsp; Find your mood<br>03 &nbsp; Take it with you</p></div><p class="privacy">Your photos stay on this device.<br>No accounts. No uploads. Just you.</p></aside></main><footer><span>NEON COAST © 2026</span><span>AN ORIGINAL POSTER MAKER · NO AFFILIATION WITH ANY GAME STUDIO</span><span>STAY OUT LATE ↗</span></footer><script type="module" src="./src/main.js"></script></body></html>

@@ -1,7 +1,2 @@
-// Fixed scenes for screenshots: ?shot=editor shows the page with a sample photo; ?shot=cover shows the cover alone.
-// `photo` picks the sample (samples/<photo>.jpg) and `caption` the words. window.__shotReady is set once painted.
-export async function runShot(shot, query, load) {
-  if (shot === 'cover') document.body.classList.add('shot-cover');
-  await load(`samples/${query.get('photo') ?? 'pier'}.jpg`, query.get('caption') ?? 'Sunset Heist');
-  requestAnimationFrame(() => requestAnimationFrame(() => { window.__shotReady = true; }));
-}
+import {renderCover} from './export.js';
+export async function showShot(shot,state){if(shot==='editor')return;if(!['cover','cover-tall','cover-wide'].includes(shot))return;state.size=shot==='cover-tall'?[1080,1350]:shot==='cover-wide'?[1920,1080]:[1080,1080];if(shot==='cover-wide')state.layout=2;const canvas=renderCover(document.createElement('canvas'),state),img=new Image();img.width=state.size[0];img.height=state.size[1];img.alt='Neon Coast original poster';img.src=canvas.toDataURL('image/png');document.body.className='poster-page';document.body.replaceChildren(img);window.__shotReady=true;}

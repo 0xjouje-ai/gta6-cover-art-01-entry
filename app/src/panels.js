@@ -1,0 +1,3 @@
+import {tintPhoto} from './grades.js';
+export function loadPhoto(url){return new Promise((resolve,reject)=>{let img=new Image();img.onload=()=>resolve(img);img.onerror=()=>reject(new Error('This photo could not be opened. Try a JPG or PNG.'));img.src=url;});}
+export function drawPanel(ctx,box,panel,grade){ctx.save();ctx.translate(box.x+box.w/2,box.y+box.h/2);ctx.rotate(box.angle);ctx.translate(-box.w/2,-box.h/2);ctx.fillStyle='#fff1db';ctx.fillRect(-5,-5,box.w+10,box.h+10);ctx.beginPath();ctx.rect(0,0,box.w,box.h);ctx.clip();let im=panel.photo,s=Math.max(box.w/im.width,box.h/im.height)*panel.zoom,pw=im.width*s,ph=im.height*s;ctx.drawImage(im,(box.w-pw)/2+panel.x*(pw-box.w)/2,(box.h-ph)/2+panel.y*(ph-box.h)/2,pw,ph);tintPhoto(ctx,box.w,box.h,grade);ctx.restore();}
